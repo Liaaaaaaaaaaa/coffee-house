@@ -1,4 +1,86 @@
-.choose {
-  height: 300px;
+.choose {}
+
+.choose__wrapper {
+  @extend %flex-column;
+  gap: 40px;
+  align-items: center
+}
+
+// .choose__title {
+// }
+
+.slider {
+  @extend %flex-column;
+  gap: 40px;
   width: 100%;
+  align-items: center
+}
+
+.slider__container {
+  @extend %flex-justify;
+  gap: 40px;
+  align-items: center;
+  width: 100%;
+}
+
+.switch {
+  display: flex;
+  width: 60px;
+  height: 60px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100px;
+  border: 1px solid $border-dark;
+}
+
+// .switch-left {}
+
+// .slides {
+// }
+
+.slide__container {
+  @extend %flex-column;
+  align-items: center;
+  max-width: 480px;
+  justify-content: center;
+  text-align: center;
+  gap: 20px;
+}
+
+
+.slide__picture {
+  width: 480px;
+  height: 480px;
+  background: url("../../assets/choose/slides/coffee-slider-1.png");
+}
+
+.slide__name {
+  @include font ($border-dark, 2.4rem, 600, line-height);
+}
+
+.slide__description {
+  @include font ($text-dark, 1.6rem, 400, 150%);
+}
+
+.slide__price {
+  @include font ($text-dark, 2.4rem, 600, 125%);
+}
+
+// .switch-right {
+// }
+
+.slider__controls{
+  @extend %flex-justify;
+  width: 144px;
+}
+
+.control__line {
+  width: 40px;
+  height: 4px;
+  border-radius: 100px;
+  background: $border-light;
+}
+
+.control_active {
+  background: $border-dark;
 }

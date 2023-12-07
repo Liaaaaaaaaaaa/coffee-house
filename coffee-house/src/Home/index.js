@@ -15,9 +15,3 @@ const root = document.getElementById('root');
 root.append(Enjoy);
 root.append(Choose);
 
-function e1 (a,b) {
- return a+b
-}
-
-// console.log(e1(1,1));
-// console.log(Header)

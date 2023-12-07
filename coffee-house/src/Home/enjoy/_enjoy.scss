@@ -19,9 +19,7 @@
   @include font ($text-light, 7.2rem, 600, 105%);
 }
 
-.text-accent {
-  color: $text-accent;
-}
+
 
 .enjoy__text {
   @include font ($text-light, 1.6rem, 400, 150%);

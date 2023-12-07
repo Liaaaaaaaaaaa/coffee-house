@@ -19,3 +19,12 @@ main {
   max-width: $width-desktop;
   padding: 0 40px;
 }
+
+.title {
+  @include font ($text-dark,  6rem, 600, 125%)
+}
+
+.title-accent {
+  color: $text-accent;
+  font-style: italic;
+}
