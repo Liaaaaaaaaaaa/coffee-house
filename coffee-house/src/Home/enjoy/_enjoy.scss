@@ -1,0 +1,28 @@
+.enjoy {}
+
+.enjoy-wrapper {
+  
+  border-radius: 40px;
+  background: url("../../assets/enjoy/background-enjoy.jpg"), lightgray 50% / cover no-repeat;
+  // padding: 100px;
+}
+
+.enjoy-container {
+  padding: 100px 0 100px 100px;
+  max-width: 630px;
+  width: 100%;
+  @extend %flex-column;
+  gap: 40px;
+}
+
+.enjoy__title {
+  @include font ($text-light, 7.2rem, 600, 105%);
+}
+
+.text-accent {
+  color: $text-accent;
+}
+
+.enjoy__text {
+  @include font ($text-light, 1.6rem, 400, 150%);
+}

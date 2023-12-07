@@ -1,0 +1,25 @@
+.header {
+  padding: 20px 0;
+
+}
+
+.header__wrapper {
+  @extend %flex-justify;
+  @include font ($text-dark, 1.6rem, 600, 150%);
+  align-items: center;
+}
+
+
+.menu {
+  display: flex;
+}
+
+.menu__text {
+  margin-right: 8px;
+}
+
+.menu__picture {
+  background: url(../../assets/header/coffee-cup.svg);
+  width: 20px;
+  height: 20px;
+}

@@ -1,0 +1,21 @@
+html {
+  font-size: 10px;
+  scroll-behavior: smooth;
+}
+
+body {
+  max-width: $width-desktop ;
+  margin: 0 auto;
+  font-family: 'Inter', sans-serif;
+  background: $background-body;
+}
+
+main {
+  @extend %flex-column;
+  gap: 100px;
+}
+
+.wrapper {
+  max-width: $width-desktop;
+  padding: 0 40px;
+}
