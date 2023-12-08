@@ -20,11 +20,11 @@ main {
   padding: 0 40px;
 }
 
-.title {
+h2 {
   @include font ($text-dark,  6rem, 600, 125%)
 }
 
-.title-accent {
+.title_accent {
   color: $text-accent;
   font-style: italic;
 }
