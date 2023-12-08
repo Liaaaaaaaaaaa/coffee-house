@@ -6,6 +6,7 @@ import Header from '../Header';
 import Enjoy from '../Home/enjoy';
 import Choose from '../Home/choose';
 import Resource from './resource';
+import Download from './download';
 
 
 const header = document.getElementById('header');
@@ -16,5 +17,6 @@ const root = document.getElementById('root');
 root.append(Enjoy);
 root.append(Choose);
 root.append(Resource);
+root.append(Download);
 
 

@@ -1,0 +1,86 @@
+.download {
+  &__wrapper {
+    @extend %flex-justify;
+    align-items: center;
+  }
+
+  &__content {
+    width: calc((100% - 100px)/2);
+    @extend %flex-column;
+    gap: 40px;
+  }
+
+  &__title {}
+
+  &__text {
+    @include font ($text-dark, 16px, 400, 150%)
+  }
+
+  &__picture {
+    width: 630px;
+    height: 630px;
+    background: url('../../assets/download/mobiles.svg') no-repeat;
+  }
+}
+
+.download__buttons {
+  display: flex;
+  gap: 20px
+}
+
+.button-app-store {
+  display: flex;
+  padding: 12px 20px;
+  justify-content: start;
+  gap: 8px;
+  border-radius: 100px;
+  border: 1px solid $border-dark;
+
+
+  &__icon {
+    width: 36px;
+    height: 36px;
+    background: url('../../assets/download/icon-apply.svg');
+  }
+
+  &__content {
+    @extend %flex-column
+  }
+
+  &__text {
+    @include font ($text-dark, 10px, 600, 140%)
+  }
+
+  &__name {
+    @include font ($text-dark, 16px, 600, 150%)
+  }
+}
+
+
+.button-google-play {
+  display: flex;
+  padding: 12px 20px;
+  justify-content: start;
+  gap: 8px;
+  border-radius: 100px;
+  border: 1px solid $border-dark;
+
+  &__icon {
+    width: 36px;
+    height: 36px;
+    background: url('../../assets/download/icon-google.svg');
+  }
+
+  &__content {
+    @extend %flex-column
+  }
+
+  &__text {
+    @include font ($text-dark, 10px, 600, 140%)
+  }
+
+  &__name {
+    @include font ($text-dark, 16px, 600, 150%)
+  }
+}
+
