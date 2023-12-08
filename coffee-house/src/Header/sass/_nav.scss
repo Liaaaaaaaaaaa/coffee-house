@@ -9,6 +9,12 @@
 
   &__item {
     margin-right: 40px;
+    border-bottom: 2px solid $text-light;
+
+    &:hover {
+      border-bottom: 2px solid $text-dark;
+      
+    }
 
     &:last-child {
       margin-right: 0;
