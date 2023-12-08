@@ -8,8 +8,11 @@
 @import "../sass/base/base";
 @import "../sass/components/buttons";
 
-//layouts 
+//-------layouts 
 @import "./enjoy/enjoy";
 @import "./choose/choose";
 @import "./resource/resourse";
 @import "./download/download";
+
+//------footer-----
+@import "../Footer/footer";

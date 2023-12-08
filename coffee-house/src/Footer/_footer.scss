@@ -1,0 +1,105 @@
+.footer {
+  padding-bottom: 20px;
+}
+
+.footer__wrapper {}
+
+.footer__container {
+  padding: 100px;
+  border-radius: 40px;
+  background: $background-container;
+  width: 100%;
+  display: flex;
+  gap: 100px;
+}
+
+.footer__block1 {
+  width: calc((100% - 100px)/2);
+  @extend %flex-column;
+  gap: 40px;
+}
+
+.footer__title {
+  color: $text-light;
+
+}
+
+.media-social {
+  display: flex;
+  gap: 12px;
+}
+
+.button_media {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 100px;
+  border: 1px solid $border-light;
+  background: inherit;
+}
+
+.twitter__icon {
+  width: 24px;
+  height: 24px;
+  background: url('../../assets/footer/twitter-icon.svg') no-repeat;
+}
+
+.insta__icon {
+  width: 24px;
+  height: 24px;
+  background: url('../../assets/footer/instagram-icon.svg') no-repeat;
+}
+
+.facebook__icon {
+  width: 24px;
+  height: 24px;
+  background: url('../../assets/footer/facebook-icon.svg') no-repeat;
+}
+
+.contacts {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: calc((100% - 100px) / 2);
+}
+
+.contacts__container {
+  width: 100%;
+  @extend %flex-column;
+  gap: 40px
+}
+
+.contacts__title {
+  @include font ($text-light, 2.4rem, 600, 125%)
+}
+
+.contacts__links {
+  @extend %flex-column;
+  gap: 16px
+}
+
+.contacts__link {
+  @include font ($text-light, 1.6rem, 600, 150%);
+  display: flex;
+  gap: 8px
+}
+
+.adress__icon {
+  width: 20px;
+  height: 20px;
+  background: url('../../assets/footer/contacts/pin-alt.svg');
+}
+
+.phone__icon {
+  width: 20px;
+  height: 20px;
+  background: url('../../assets/footer/contacts/phone.svg');
+}
+
+.work-time__icon {
+  width: 20px;
+  height: 20px;
+  background: url('../../assets/footer/contacts/clock.svg');
+}
