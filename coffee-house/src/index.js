@@ -1,5 +1,6 @@
 // import {e1} from "./home";
 
-import './Home'
+import './Home';
+import './Menu';
 
 

@@ -12,8 +12,8 @@
     border-bottom: 2px solid $text-light;
 
     &:hover {
-      border-bottom: 2px solid $text-dark;
-      
+      border-bottom: 2px solid $text-dark; 
+      @extend %transition;
     }
 
     &:last-child {
