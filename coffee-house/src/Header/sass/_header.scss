@@ -14,19 +14,18 @@
   display: flex;
   border-bottom: 2px solid $text-light;
 
+  &__text {
+    margin-right: 8px;
+  }
+
+  &__picture {
+    background: url(../../assets/header/coffee-cup.svg);
+    width: 20px;
+    height: 20px;
+  }
+
   &:hover {
     border-bottom: 2px solid $text-dark;
     @extend %transition;
-
-    &__text {
-      margin-right: 8px;
-    }
-    
-    &__picture {
-      background: url(../../assets/header/coffee-cup.svg);
-      width: 20px;
-      height: 20px;
-    }
   }
 }
-

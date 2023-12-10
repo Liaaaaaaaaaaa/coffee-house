@@ -31,6 +31,12 @@
   align-items: center;
   border-radius: 100px;
   border: 1px solid $border-dark;
+  font-size: 18px;
+
+  &:hover {
+    background: $background-container;
+    color: $background-body;
+  }
 }
 
 // .switch-left {}
@@ -69,7 +75,7 @@
 // .switch-right {
 // }
 
-.slider__controls{
+.slider__controls {
   @extend %flex-justify;
   width: 144px;
 }

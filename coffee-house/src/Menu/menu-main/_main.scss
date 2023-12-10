@@ -70,7 +70,7 @@
   }
 }
 
-.switching_active {
+.switching_active, .switching__item:hover {
   background: $background-container;
 
   .switching {
@@ -99,6 +99,15 @@
   border: 1px solid $border-light;
   overflow: hidden;
   max-width: 310px;
+
+  &:hover {
+    .category__picture {
+      width: calc(340px - 15px*2);
+      height: calc(340px - 15px*2);
+      background-size: contain;
+      @extend %transition;
+    }
+  }
 
   &:nth-child(1) .category-picture__container div {
     background: url("../../assets/menu__page/categories/coffee/coffee-1.jpg") lightgray 50% / cover no-repeat;
@@ -144,15 +153,17 @@
     width: 340px;
     height: 340px;
     padding: 15px;
-
+    @extend %transition;
   }
 
   &__content {
     width: 100%;
+    height: 196px;
     padding: 20px;
     @extend %flex-column;
     align-items: flex-start;
-    gap: 12px;
+    // gap: 12px;
+    justify-content: space-between;
   }
 
   &__name-price {
@@ -164,3 +175,8 @@
     text-align: start
   }
 }
+
+//  .menu-link {
+//   pointer-events: none;
+//  }
+// 

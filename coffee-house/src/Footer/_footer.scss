@@ -38,6 +38,26 @@
   border-radius: 100px;
   border: 1px solid $border-light;
   background: inherit;
+
+  &:hover {
+    background: $background-body;
+    @extend %transition;
+
+    .twitter__icon {
+      background: url('../../assets/footer/twitter-icon-hover.svg') no-repeat;
+      @extend %transition;
+    }
+
+    .insta__icon {
+      background: url('../../assets/footer/instagram-icon-hover.svg') no-repeat;
+      @extend %transition;
+    }
+
+    .facebook__icon {
+      background: url('../../assets/footer/facebook-icon-hover.svg') no-repeat;
+      @extend %transition;
+    }
+  }
 }
 
 .twitter__icon {
@@ -82,8 +102,18 @@
 
 .contacts__link {
   @include font ($text-light, 1.6rem, 600, 150%);
-  display: flex;
-  gap: 8px
+  display: inline-flex;
+  gap: 8px;
+  border-bottom: 2px solid $background-container;
+
+  &:hover {
+    border-color: $background-body;
+    @extend %transition;
+  }
+}
+
+.contact_text {
+  display: inline-flex;
 }
 
 .adress__icon {
