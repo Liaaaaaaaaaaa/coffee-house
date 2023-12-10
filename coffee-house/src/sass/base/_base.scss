@@ -21,7 +21,7 @@ main {
 }
 
 h2 {
-  @include font ($text-dark,  6rem, 600, 125%)
+  @include font ($text-dark, 6rem, 600, 125%)
 }
 
 .title_accent {

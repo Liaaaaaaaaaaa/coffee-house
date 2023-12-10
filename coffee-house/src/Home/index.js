@@ -14,13 +14,22 @@ const header = document.getElementById('header');
 header.append(Header);
 
 const root = document.getElementById('root');
-console.log(root);
-root.append(Enjoy);
-root.append(Choose);
-root.append(Resource);
-root.append(Download);
+// console.log(root);
+
+if (root) {
+  root.append(Enjoy);
+  root.append(Choose);
+  root.append(Resource);
+  root.append(Download);
+}
+
 
 const footer = document.getElementById('footer');
 footer.append(Footer);
+console.log(footer);
+
+
+
+
 
 

@@ -1,10 +1,21 @@
 %flex-justify {
   display: flex;
   justify-content: space-between;
+}
+
+%flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 };
 
 %flex-column {
   display: flex;
   flex-direction: column;
-};
+}
 
+;
+
+%transition {
+  transition: all 0.7s ease-out;
+}

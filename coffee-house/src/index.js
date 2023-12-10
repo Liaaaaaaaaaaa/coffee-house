@@ -1,5 +1,6 @@
 
 
-import './Home'
+import './Home';
+import './Menu';
 
 

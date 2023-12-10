@@ -1,0 +1,15 @@
+@import '../sass/base/normalize.scss/';
+
+
+// ------------SASS--basic------------
+@import "../sass/abstracts/constants";
+@import "../sass/abstracts/mixins";
+@import "../sass/abstracts/placeholders";
+@import "../sass/base/base";
+@import "../sass/components/buttons";
+
+//-------layouts 
+@import "./menu-main/main";
+
+//------footer-----
+@import "../Footer/footer";

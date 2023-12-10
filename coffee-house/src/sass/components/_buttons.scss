@@ -4,12 +4,126 @@
   justify-content: center;
   align-items: center;
   border-radius: 100px;
-  @include font ($text-dark, 1.6rem, 600,  150%);
+  @include font ($text-dark, 1.6rem, 600, 150%);
   background: $background-body;
 }
 
 .button__enjoy {
   background: $background-body;
-  border-color: inherit;
-  outline-color: inherit;
+  border-color: $background-body;
+  outline-color: $background-body;
+  display: flex;
+  justify-content: center;
+  @extend %transition;
+
+  .menu-link__picture {
+    width: 0;
+    @extend %transition;
+  }
+
+  &:hover {
+    .menu-link__picture {
+      width: 20px;
+      @extend %transition;
+    }
+  }
+}
+
+.button-app-store {
+  display: flex;
+  padding: 12px 20px;
+  justify-content: start;
+  gap: 8px;
+  border-radius: 100px;
+  border: 1px solid $border-dark;
+
+  &:hover {
+    background: $background-container;
+    @extend %transition;
+
+    .button-app-store {
+      &__text {
+        color: $background-body;
+        @extend %transition;
+      }
+
+      &__name {
+        color: $background-body;
+        @extend %transition;
+      }
+
+      &__icon {
+        background: url('../../assets/download/icon-apply-hover.svg');
+        @extend %transition;
+      }
+    }
+  }
+
+  &__icon {
+    width: 36px;
+    height: 36px;
+    background: url('../../assets/download/icon-apply.svg');
+  }
+
+  &__content {
+    @extend %flex-column
+  }
+
+  &__text {
+    @include font ($text-dark, 10px, 600, 140%)
+  }
+
+  &__name {
+    @include font ($text-dark, 16px, 600, 150%)
+  }
+}
+
+
+.button-google-play {
+  display: flex;
+  padding: 12px 20px;
+  justify-content: start;
+  gap: 8px;
+  border-radius: 100px;
+  border: 1px solid $border-dark;
+
+  &__icon {
+    width: 36px;
+    height: 36px;
+    background: url('../../assets/download/icon-google.svg');
+  }
+
+  &__content {
+    @extend %flex-column;
+  }
+
+  &__text {
+    @include font ($text-dark, 10px, 600, 140%);
+  };
+
+  &__name {
+    @include font ($text-dark, 16px, 600, 150%);
+  }
+
+  &:hover {
+    background: $background-container;
+    @extend %transition;
+
+    .button-google-play {
+      &__text {
+        color: $background-body;
+        @extend %transition;
+      }
+
+      &__name {
+        color: $background-body;
+        @extend %transition;
+      }
+
+      &__icon {
+        background: url('../../assets/download/icon-google-hover.svg');
+        @extend %transition;
+      }
+    }
+  }
 }

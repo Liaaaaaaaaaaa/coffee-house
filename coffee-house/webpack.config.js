@@ -36,7 +36,12 @@ module.exports = {
   
   plugins: [
     new HtmlWebpackPlugin({
+      filename: 'index.html',
       template: './src/home/index.html',
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'menu.html',
+      template: './src/menu/menu.html',
     }),
   ],
 

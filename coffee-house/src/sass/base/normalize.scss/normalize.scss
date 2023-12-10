@@ -273,6 +273,7 @@ textarea {
 
 button {
   overflow: visible;
+  border-style: none;
 }
 
 /**
@@ -323,6 +324,7 @@ button::-moz-focus-inner,
 input::-moz-focus-inner {
   border: 0;
   padding: 0;
+
 }
 
 /**
@@ -471,6 +473,8 @@ p {
 
 a {
   text-decoration: none;
+  color: inherit;
+  cursor: pointer;
 }
 
 ul,

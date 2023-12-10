@@ -1,16 +1,17 @@
-.enjoy {}
+// .enjoy {}
 
-.enjoy-wrapper {
-  
-  border-radius: 40px;
-  background: url("../../assets/enjoy/background-enjoy.jpg"), lightgray 50% / cover no-repeat;
-  // padding: 100px;
-}
+// .enjoy-wrapper {}
 
 .enjoy-container {
-  padding: 100px 0 100px 100px;
-  max-width: 630px;
   width: 100%;
+
+  border-radius: 40px;
+  background: url("../../assets/enjoy/background-enjoy.jpg"), lightgray 50% / cover no-repeat;
+  padding: 100px;
+}
+
+.enjoy__content {
+  max-width: 530px;
   @extend %flex-column;
   gap: 40px;
 }

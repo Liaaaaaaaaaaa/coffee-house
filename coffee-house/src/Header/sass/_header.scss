@@ -10,16 +10,22 @@
 }
 
 
-.menu {
+.menu-link {
   display: flex;
-}
+  border-bottom: 2px solid $text-light;
 
-.menu__text {
-  margin-right: 8px;
-}
+  &__text {
+    margin-right: 8px;
+  }
 
-.menu__picture {
-  background: url(../../assets/header/coffee-cup.svg);
-  width: 20px;
-  height: 20px;
+  &__picture {
+    background: url(../../assets/header/coffee-cup.svg);
+    width: 20px;
+    height: 20px;
+  }
+
+  &:hover {
+    border-bottom: 2px solid $text-dark;
+    @extend %transition;
+  }
 }
