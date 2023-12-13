@@ -36,6 +36,7 @@
   &:hover {
     background: $background-container;
     color: $background-body;
+    @extend %transition;
   }
 }
 
