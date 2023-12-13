@@ -6,8 +6,15 @@
   align-items: center
 }
 
-// .choose__title {
-// }
+.choose__title {
+  @include media-tablet {
+    text-align: center
+  }
+
+  @include media-mobile {
+    @include font ($text-dark, 3.2rem, 600, 125%)
+  }
+}
 
 .slider {
   @extend %flex-column;
@@ -33,6 +40,10 @@
   border: 1px solid $border-dark;
   font-size: 18px;
 
+  @include media-mobile {
+    display: none;
+  }
+
   &:hover {
     background: $background-container;
     color: $background-body;
@@ -52,17 +63,35 @@
   justify-content: center;
   text-align: center;
   gap: 20px;
+
+  @include media-tablet {
+    gap: 16px;
+  }
 }
 
 
 .slide__picture {
   width: 480px;
   height: 480px;
-  background: url("../../assets/choose/slides/coffee-slider-1.png");
+  background: url("../../assets/choose/slides/coffee-slider-1.png") ,  50% / cover no-repeat;
+
+  @include media-tablet {
+    margin-bottom: 4px;
+  }
+
+  @include media-mobile {
+    width: 348px;
+    height: 348px;
+    background-size: contain;
+  }
 }
 
 .slide__name {
   @include font ($border-dark, 2.4rem, 600, line-height);
+
+  @include media-mobile {
+    @include font($text-dark, 2.4rem, 600, 125%);
+  }
 }
 
 .slide__description {

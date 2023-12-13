@@ -19,6 +19,10 @@
   .menu-link__picture {
     width: 0;
     @extend %transition;
+
+    @include media-tablet {
+      width: 20px;
+    }
   }
 
   &:hover {
@@ -27,6 +31,7 @@
       @extend %transition;
     }
   }
+
 }
 
 .button-app-store {
@@ -99,7 +104,9 @@
 
   &__text {
     @include font ($text-dark, 10px, 600, 140%);
-  };
+  }
+
+  ;
 
   &__name {
     @include font ($text-dark, 16px, 600, 150%);

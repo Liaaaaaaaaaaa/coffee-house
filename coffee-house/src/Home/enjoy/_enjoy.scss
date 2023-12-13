@@ -4,10 +4,17 @@
 
 .enjoy-container {
   width: 100%;
-
   border-radius: 40px;
   background: url("../../assets/enjoy/background-enjoy.jpg"), lightgray 50% / cover no-repeat;
   padding: 100px;
+
+  @include media-tablet {
+    padding: 100px 60px;
+    background-position: 50%;
+  }
+  @include media-mobile {
+    padding: 60px 16px;
+  }
 }
 
 .enjoy__content {
@@ -18,9 +25,11 @@
 
 .enjoy__title {
   @include font ($text-light, 7.2rem, 600, 105%);
+
+  @include media-mobile-more {
+    @include font ($text-light, 4.2rem, 600, 115%);
+  }
 }
-
-
 
 .enjoy__text {
   @include font ($text-light, 1.6rem, 400, 150%);

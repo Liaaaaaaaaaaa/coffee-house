@@ -9,7 +9,11 @@
 
 .pictures-2-column {
   @extend %flex-justify;
-}
+
+  @include media-tablet-more {
+    flex-wrap: wrap;
+  }
+};
 
 .pictures__blocks {
   @extend %flex-column;
@@ -25,6 +29,7 @@
   transition: display 3s ease-in-out;
 
   &:hover {
+
     .picture-visible_big,
     .picture-visible_small {
       width: 660px;
@@ -51,6 +56,10 @@
   height: 430px;
   @extend %flex-center;
   overflow: hidden;
+
+  @include media-tablet {
+    display: none;
+  }
 }
 
 
