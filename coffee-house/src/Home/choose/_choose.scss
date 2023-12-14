@@ -10,10 +10,6 @@
   @include media-tablet {
     text-align: center
   }
-
-  @include media-mobile {
-    @include font ($text-dark, 3.2rem, 600, 125%)
-  }
 }
 
 .slider {
@@ -28,6 +24,11 @@
   gap: 40px;
   align-items: center;
   width: 100%;
+
+  @include media-mobile-more {
+    flex-wrap: wrap;
+   flex-direction: column;
+  }
 }
 
 .switch {
@@ -53,8 +54,12 @@
 
 // .switch-left {}
 
-// .slides {
-// }
+.slides {
+  @include media-mobile-more {
+    max-width: 100%;
+  }
+
+}
 
 .slide__container {
   @extend %flex-column;
@@ -67,13 +72,17 @@
   @include media-tablet {
     gap: 16px;
   }
+
+  @include media-mobile-more {
+    max-width: 100%;
+  }
 }
 
 
 .slide__picture {
   width: 480px;
   height: 480px;
-  background: url("../../assets/choose/slides/coffee-slider-1.png") ,  50% / cover no-repeat;
+  background: url("../../assets/choose/slides/coffee-slider-1.png"), 50% / cover no-repeat;
 
   @include media-tablet {
     margin-bottom: 4px;
@@ -96,6 +105,10 @@
 
 .slide__description {
   @include font ($text-dark, 1.6rem, 400, 150%);
+
+  @include media-mobile-more {
+    width: 100%;
+  }
 }
 
 .slide__price {
