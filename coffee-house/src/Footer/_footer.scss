@@ -11,12 +11,26 @@
   width: 100%;
   display: flex;
   gap: 100px;
+
+  @include media-tablet-more {
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 100px 60px;
+  }
+  @include media-mobile-more {
+    padding: 60px 16px;
+    gap: 40px;
+  }
 }
 
 .footer__block1 {
   width: calc((100% - 100px)/2);
   @extend %flex-column;
   gap: 40px;
+
+  @include media-tablet-more {
+    width: 100%;
+  }
 }
 
 .footer__title {
@@ -83,6 +97,10 @@
   justify-content: center;
   align-items: center;
   width: calc((100% - 100px) / 2);
+
+  @include media-tablet-more {
+    width: 100%
+  }
 }
 
 .contacts__container {
@@ -97,7 +115,7 @@
 
 .contacts__links {
   @extend %flex-column;
-  gap: 16px
+  gap: 19px;
 }
 
 .contacts__link {

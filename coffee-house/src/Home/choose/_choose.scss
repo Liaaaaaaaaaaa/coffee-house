@@ -6,8 +6,11 @@
   align-items: center
 }
 
-// .choose__title {
-// }
+.choose__title {
+  @include media-tablet {
+    text-align: center
+  }
+}
 
 .slider {
   @extend %flex-column;
@@ -21,6 +24,11 @@
   gap: 40px;
   align-items: center;
   width: 100%;
+
+  @include media-mobile-more {
+    flex-wrap: wrap;
+   flex-direction: column;
+  }
 }
 
 .switch {
@@ -33,6 +41,10 @@
   border: 1px solid $border-dark;
   font-size: 18px;
 
+  @include media-mobile {
+    display: none;
+  }
+
   &:hover {
     background: $background-container;
     color: $background-body;
@@ -42,8 +54,12 @@
 
 // .switch-left {}
 
-// .slides {
-// }
+.slides {
+  @include media-mobile-more {
+    max-width: 100%;
+  }
+
+}
 
 .slide__container {
   @extend %flex-column;
@@ -52,21 +68,47 @@
   justify-content: center;
   text-align: center;
   gap: 20px;
+
+  @include media-tablet {
+    gap: 16px;
+  }
+
+  @include media-mobile-more {
+    max-width: 100%;
+  }
 }
 
 
 .slide__picture {
   width: 480px;
   height: 480px;
-  background: url("../../assets/choose/slides/coffee-slider-1.png");
+  background: url("../../assets/choose/slides/coffee-slider-1.png"), 50% / cover no-repeat;
+
+  @include media-tablet {
+    margin-bottom: 4px;
+  }
+
+  @include media-mobile {
+    width: 348px;
+    height: 348px;
+    background-size: contain;
+  }
 }
 
 .slide__name {
   @include font ($border-dark, 2.4rem, 600, line-height);
+
+  @include media-mobile {
+    @include font($text-dark, 2.4rem, 600, 125%);
+  }
 }
 
 .slide__description {
   @include font ($text-dark, 1.6rem, 400, 150%);
+
+  @include media-mobile-more {
+    width: 100%;
+  }
 }
 
 .slide__price {

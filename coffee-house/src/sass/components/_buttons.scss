@@ -8,6 +8,7 @@
   background: $background-body;
 }
 
+//----Enjoy section -----------------
 .button__enjoy {
   background: $background-body;
   border-color: $background-body;
@@ -19,6 +20,10 @@
   .menu-link__picture {
     width: 0;
     @extend %transition;
+
+    @include media-tablet {
+      width: 20px;
+    }
   }
 
   &:hover {
@@ -27,8 +32,11 @@
       @extend %transition;
     }
   }
+
 }
 
+
+//-----Download section--------------
 .button-app-store {
   display: flex;
   padding: 12px 20px;
@@ -99,7 +107,9 @@
 
   &__text {
     @include font ($text-dark, 10px, 600, 140%);
-  };
+  }
+
+  ;
 
   &__name {
     @include font ($text-dark, 16px, 600, 150%);
@@ -126,4 +136,24 @@
       }
     }
   }
+}
+
+//-----Menu - page 
+.button-refresh {
+  display: none;
+  width: 60px;
+  height: 60px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100px;
+  border: 1px solid $border-dark;
+
+  @include media-tablet {
+    display: flex;
+  }
+}
+
+.button-refresh__icon {
+  width: 24px;
+  height: 24px;
 }

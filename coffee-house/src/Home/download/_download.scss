@@ -1,17 +1,36 @@
 .download {
   padding-bottom: 100px;
+
   &__wrapper {
     @extend %flex-justify;
     align-items: center;
+
+    @include media-tablet-more {
+      flex-wrap: wrap;
+    }
+
+    @include media-tablet {
+      flex-direction: column;
+      gap: 100px;
+      width: 100%;
+    }
+    @include media-mobile-more {
+      gap: 40px;
+    }
   }
 
   &__content {
     width: calc((100% - 100px)/2);
     @extend %flex-column;
     gap: 40px;
+
+    @include media-tablet-more {
+      width: 100%;
+      align-self: start;
+    }
   }
 
-  &__title {}
+  // &__title {}
 
   &__text {
     @include font ($text-dark, 16px, 400, 150%)
@@ -21,11 +40,20 @@
     width: 630px;
     height: 630px;
     background: url('../../assets/download/mobiles.svg') no-repeat;
+
+    @include media-mobile-more {
+      width: 348px;
+      height: 348px;
+      background-size: contain;
+    }
   }
 }
 
 .download__buttons {
   display: flex;
-  gap: 20px
-}
+  gap: 20px;
 
+  @include media-mobile-more {
+    flex-wrap: wrap;
+  }
+}

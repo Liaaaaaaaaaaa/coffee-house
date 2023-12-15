@@ -18,10 +18,18 @@ main {
 .wrapper {
   max-width: $width-desktop;
   padding: 0 40px;
+
+  @include media-mobile {
+    padding: 0 16px;
+  }
 }
 
 h2 {
-  @include font ($text-dark, 6rem, 600, 125%)
+  @include font ($text-dark, 6rem, 600, 125%);
+
+  @include media-mobile {
+    @include font ($text-dark, 3.2rem, 600, 125%)
+  }
 }
 
 .title_accent {

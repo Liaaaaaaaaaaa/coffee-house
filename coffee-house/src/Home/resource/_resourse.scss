@@ -9,11 +9,32 @@
 
 .pictures-2-column {
   @extend %flex-justify;
+
+  @include media-tablet-more {
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  @include media-mobile-more {
+    width: 100%;
+  }
 }
+
+;
 
 .pictures__blocks {
   @extend %flex-column;
-  gap: 40px
+  gap: 40px;
+
+  @include media-tablet {
+    align-items: center;
+  }
+
+  @include media-mobile-more {
+    width: 100%;
+  }
+
 }
 
 .source__picture {
@@ -25,6 +46,7 @@
   transition: display 3s ease-in-out;
 
   &:hover {
+
     .picture-visible_big,
     .picture-visible_small {
       width: 660px;
@@ -36,14 +58,33 @@
 }
 
 .picture_big {
-  width: 660px;
+  max-width: 660px;
   height: 590px;
+
+  @include media-tablet {
+    width: 688px;
+  }
+
+  @include media-mobile-more {
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  @include media-mobile {
+    width: 348px;
+  }
 }
 
 .picture-visible_big {
   width: 726px;
   height: 726px;
   padding: 68px 33px;
+
+  @include media-mobile-more {
+    max-width: 100%;
+    max-height: 100%;
+    padding: 68px 19px;
+  }
 }
 
 .picture_small {
@@ -51,6 +92,10 @@
   height: 430px;
   @extend %flex-center;
   overflow: hidden;
+
+  @include media-tablet {
+    display: none;
+  }
 }
 
 
@@ -61,7 +106,19 @@
 }
 
 .picture1 {
-  background: url(../../assets/resource/resource-1.jpg), lightgray 50% / cover no-repeat;
+  background: url(../../assets/resource/resource-1.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  @include media-mobile-more {
+    background-size: contain;
+  }
+
+  @include media-mobile {
+    background-size: cover;
+    background-position-x: 50%;
+  }
+
 }
 
 .picture2 {
@@ -73,5 +130,17 @@
 }
 
 .picture4 {
-  background: url(../../assets/resource/resource-4.jpg), lightgray 50% / cover no-repeat;
+  background: url(../../assets/resource/resource-4.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  @include media-mobile-more {
+    background-size: contain;
+  }
+
+  @include media-mobile {
+    background-size: cover;
+    background-position-x: 50%;
+  }
+
 }
