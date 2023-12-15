@@ -4,6 +4,7 @@
     gap: 40px;
     align-items: center;
     text-align: center;
+    padding-bottom: 100px;
   }
 
   &__title {
@@ -26,7 +27,10 @@
 .switching {
   &__container {
     display: flex;
-    gap: 16px
+    gap: 16px;
+    @include media-mobile-more {
+      gap: 8px;
+    }
   }
 
   &__item {
@@ -91,94 +95,103 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 40px;
-    padding-bottom: 100px;
+
+    @include media-tablet-more {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include media-mobile-more {
+      grid-template-columns: repeat(1, 1fr);
+    }
+
   }
-}
 
 
-.category {
-  border-radius: 40px;
-  border: 1px solid $border-light;
-  overflow: hidden;
-  max-width: 310px;
+  .category {
+    border-radius: 40px;
+    border: 1px solid $border-light;
+    overflow: hidden;
+    max-width: 310px;
 
-  &:hover {
-    .category__picture {
+    @include media-tablet {
+      &:nth-child(n+5){
+        display: none
+      }
+    }
+
+    &:hover {
+      .category__picture {
+        width: calc(340px - 15px*2);
+        height: calc(340px - 15px*2);
+        background-size: contain;
+        @extend %transition;
+      }
+    }
+
+    &:nth-child(1) .category-picture__container div {
+      background: url("../../assets/menu__page/categories/coffee/coffee-1.jpg") lightgray 50% / cover no-repeat;
+    }
+
+    &:nth-child(2) .category-picture__container div {
+      background: url("../../assets/menu__page/categories/coffee/coffee-2.jpg") lightgray 50% / cover no-repeat;
+    }
+
+    &:nth-child(3) .category-picture__container div {
+      background: url("../../assets/menu__page/categories/coffee/coffee-3.jpg") lightgray 50% / cover no-repeat;
+    }
+
+    &:nth-child(4) .category-picture__container div {
+      background: url("../../assets/menu__page/categories/coffee/coffee-4.jpg") lightgray 50% / cover no-repeat;
+    }
+
+    &:nth-child(5) .category-picture__container div {
+      background: url("../../assets/menu__page/categories/coffee/coffee-5.jpg") lightgray 50% / cover no-repeat;
+    }
+
+    &:nth-child(6) .category-picture__container div {
+      background: url("../../assets/menu__page/categories/coffee/coffee-6.jpg") lightgray 50% / cover no-repeat;
+    }
+
+    &:nth-child(7) .category-picture__container div {
+      background: url("../../assets/menu__page/categories/coffee/coffee-7.jpg") lightgray 50% / cover no-repeat;
+    }
+
+    &:nth-child(8) .category-picture__container div {
+      background: url("../../assets/menu__page/categories/coffee/coffee-8.jpg") lightgray 50% / cover no-repeat;
+    }
+
+    &-picture__container {
       width: calc(340px - 15px*2);
       height: calc(340px - 15px*2);
-      background-size: contain;
+      overflow: hidden;
+      border-radius: 40px;
+      @extend %flex-center;
+    }
+
+    &__picture {
+      width: 340px;
+      height: 340px;
+      padding: 15px;
       @extend %transition;
     }
-  }
 
-  &:nth-child(1) .category-picture__container div {
-    background: url("../../assets/menu__page/categories/coffee/coffee-1.jpg") lightgray 50% / cover no-repeat;
-  }
+    &__content {
+      width: 100%;
+      height: 196px;
+      padding: 20px;
+      @extend %flex-column;
+      align-items: flex-start;
+      // gap: 12px;
+      justify-content: space-between;
+    }
 
-  &:nth-child(2) .category-picture__container div {
-    background: url("../../assets/menu__page/categories/coffee/coffee-2.jpg") lightgray 50% / cover no-repeat;
-  }
+    &__name-price {
+      @include font ($text-dark, 2.4rem, 600, 125%);
+    }
 
-  &:nth-child(3) .category-picture__container div {
-    background: url("../../assets/menu__page/categories/coffee/coffee-3.jpg") lightgray 50% / cover no-repeat;
-  }
-
-  &:nth-child(4) .category-picture__container div {
-    background: url("../../assets/menu__page/categories/coffee/coffee-4.jpg") lightgray 50% / cover no-repeat;
-  }
-
-  &:nth-child(5) .category-picture__container div {
-    background: url("../../assets/menu__page/categories/coffee/coffee-5.jpg") lightgray 50% / cover no-repeat;
-  }
-
-  &:nth-child(6) .category-picture__container div {
-    background: url("../../assets/menu__page/categories/coffee/coffee-6.jpg") lightgray 50% / cover no-repeat;
-  }
-
-  &:nth-child(7) .category-picture__container div {
-    background: url("../../assets/menu__page/categories/coffee/coffee-7.jpg") lightgray 50% / cover no-repeat;
-  }
-
-  &:nth-child(8) .category-picture__container div {
-    background: url("../../assets/menu__page/categories/coffee/coffee-8.jpg") lightgray 50% / cover no-repeat;
-  }
-
-  &-picture__container {
-    width: calc(340px - 15px*2);
-    height: calc(340px - 15px*2);
-    overflow: hidden;
-    border-radius: 40px;
-    @extend %flex-center;
-  }
-
-  &__picture {
-    width: 340px;
-    height: 340px;
-    padding: 15px;
-    @extend %transition;
-  }
-
-  &__content {
-    width: 100%;
-    height: 196px;
-    padding: 20px;
-    @extend %flex-column;
-    align-items: flex-start;
-    // gap: 12px;
-    justify-content: space-between;
-  }
-
-  &__name-price {
-    @include font ($text-dark, 2.4rem, 600, 125%);
-  }
-
-  &__describe {
-    @include font ($text-dark, 1.6rem, 400, 150%);
-    text-align: start
+    &__describe {
+      @include font ($text-dark, 1.6rem, 400, 150%);
+      text-align: start
+    }
   }
 }
 
-//  .menu-link {
-//   pointer-events: none;
-//  }
-// 
