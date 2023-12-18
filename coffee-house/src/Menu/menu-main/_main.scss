@@ -28,6 +28,7 @@
   &__container {
     display: flex;
     gap: 16px;
+
     @include media-mobile-more {
       gap: 8px;
     }
@@ -76,8 +77,12 @@
 }
 
 .switching_active, .switching__item:hover {
-  background: $background-container;
-  @extend %transition;
+  @include hover {
+    background: $background-container;
+  }
+
+  ;
+
 
   .switching {
     &-picture__container {
@@ -99,6 +104,7 @@
     @include media-tablet-more {
       grid-template-columns: repeat(2, 1fr);
     }
+
     @include media-mobile-more {
       grid-template-columns: repeat(1, 1fr);
     }
@@ -113,17 +119,20 @@
     max-width: 310px;
 
     @include media-tablet {
-      &:nth-child(n+5){
+      &:nth-child(n+5) {
         display: none
       }
     }
 
     &:hover {
       .category__picture {
-        width: calc(340px - 15px*2);
-        height: calc(340px - 15px*2);
-        background-size: contain;
-        @extend %transition;
+        @include hover {
+          width: calc(340px - 15px*2);
+          height: calc(340px - 15px*2);
+          background-size: contain;
+        }
+
+        ;
       }
     }
 
@@ -194,4 +203,3 @@
     }
   }
 }
-

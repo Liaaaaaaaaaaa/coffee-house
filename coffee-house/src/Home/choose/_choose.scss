@@ -1,4 +1,4 @@
-.choose {}
+// .choose {}
 
 .choose__wrapper {
   @extend %flex-column;
@@ -27,7 +27,7 @@
 
   @include media-mobile-more {
     flex-wrap: wrap;
-   flex-direction: column;
+    flex-direction: column;
   }
 }
 
@@ -46,9 +46,10 @@
   }
 
   &:hover {
-    background: $background-container;
-    color: $background-body;
-    @extend %transition;
+    @include hover {
+      background: $background-container;
+      color: $background-body;
+    };
   }
 }
 

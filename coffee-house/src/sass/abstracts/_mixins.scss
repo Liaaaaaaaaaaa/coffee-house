@@ -21,3 +21,14 @@
 @mixin media-mobile {
   @media (max-width: $width-mobile) {@content}
 };
+
+@mixin hover {
+  @media (hover: hover) and (pointer: fine) {
+    transition: all 0.7s ease-out;
+    @content}
+};
+
+@mixin transition {
+  transition: all 0.7s ease-out
+};
+

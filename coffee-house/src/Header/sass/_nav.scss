@@ -12,8 +12,10 @@
     border-bottom: 2px solid $text-light;
 
     &:hover {
-      border-bottom: 2px solid $text-dark;
-      @extend %transition;
+      @include hover {
+         border-bottom: 2px solid $text-dark;
+      };
+     
     }
 
     &:last-child {
