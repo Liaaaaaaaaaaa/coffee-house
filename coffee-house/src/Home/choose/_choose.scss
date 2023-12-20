@@ -1,4 +1,4 @@
-.choose {}
+// .choose {}
 
 .choose__wrapper {
   @extend %flex-column;
@@ -27,14 +27,14 @@
 
   @include media-mobile-more {
     flex-wrap: wrap;
-   flex-direction: column;
+    flex-direction: column;
   }
 }
 
 .switch {
   display: flex;
-  width: 60px;
-  height: 60px;
+  min-width: 60px;
+  min-height: 60px;
   justify-content: center;
   align-items: center;
   border-radius: 100px;
@@ -55,16 +55,28 @@
 // .switch-left {}
 
 .slides {
+  width: 100%;
+  overflow: hidden;
+
   @include media-mobile-more {
     max-width: 100%;
   }
 
 }
 
+.slides__container {
+  display: flex;
+  width: 300%;
+  position: relative;
+  right: 0;
+  @include transition;
+}
+
 .slide__container {
   @extend %flex-column;
+  position: relative;
   align-items: center;
-  max-width: 480px;
+  width: 100%;
   justify-content: center;
   text-align: center;
   gap: 20px;
@@ -82,7 +94,20 @@
 .slide__picture {
   width: 480px;
   height: 480px;
-  background: url("../../assets/choose/slides/coffee-slider-1.png"), 50% / cover no-repeat;
+  background-repeat: no-repeat;
+  background-position: 50%;
+
+  &-1 {
+     background-image: url("../../assets/choose/slides/coffee-slider-1.png");
+  }
+  &-2 {
+    //  background:  50% / cover no-repeat;
+    background-image: url("../../assets/choose/slides/coffee-slider-2.png");
+  }
+  &-3 {
+     background-image: url("../../assets/choose/slides/coffee-slider-3.png");
+  }
+ 
 
   @include media-tablet {
     margin-bottom: 4px;
@@ -104,6 +129,7 @@
 }
 
 .slide__description {
+  max-width: 480px;
   @include font ($text-dark, 1.6rem, 400, 150%);
 
   @include media-mobile-more {

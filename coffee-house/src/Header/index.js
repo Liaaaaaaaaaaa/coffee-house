@@ -28,7 +28,7 @@ function SwitchBurgerMenu() {
 burgerButton.addEventListener('click', SwitchBurgerMenu);
 
 const linksHeader = document.querySelector('header').querySelectorAll('a');
-console.log(linksHeader);
+// console.log(linksHeader);
 
 
 linksHeader.forEach(e => e.addEventListener('click', function () {

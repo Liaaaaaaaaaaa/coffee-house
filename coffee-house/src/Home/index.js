@@ -1,7 +1,6 @@
 
 import './index.html';
 import './index.scss';
-// import '../Header/index.js';
 
 
 import Header from '../Header/js/header.js';
@@ -30,8 +29,57 @@ const footer = document.getElementById('footer');
 footer.append(Footer);
 // console.log(footer);
 
+//------------------Slader------------------------------------
+const slidesContainer = document.querySelector('.slides__container');
 
-// console.log(document.querySelector('.burger-menu'));
+const switchRight = document.querySelector('.switch-right');
+let rightPosition = 0;
 
+const controlLine = document.querySelectorAll('.control__line');
+let numberControlLine = 0;
+
+function rightSwitchSlader() {
+  if (rightPosition < 200) {
+    rightPosition = rightPosition + 100;
+  } else {
+    rightPosition = 0;
+  }
+  slidesContainer.style.right = rightPosition + '%';
+  controlLine[numberControlLine].classList.remove("control_active");
+  // controlLine[numberControlLine + 1].classList.add("control_active");
+  if (numberControlLine < 2) {
+    controlLine[numberControlLine + 1].classList.add("control_active");
+    numberControlLine += 1
+  } else {
+    controlLine[numberControlLine - 2].classList.add("control_active");
+    numberControlLine = 0;
+  }
+};
+
+switchRight.addEventListener("click", rightSwitchSlader);
+
+const switchLeft = document.querySelector('.switch-left');
+// let leftPosition = 0;
+
+
+function leftSwitchSlader() {
+  if (rightPosition > 0) {
+    rightPosition = rightPosition - 100;
+  } else {
+    rightPosition = 0;
+  }
+  slidesContainer.style.right = rightPosition + '%';
+  controlLine[numberControlLine].classList.remove("control_active");
+  // controlLine[numberControlLine + 1].classList.add("control_active");
+  if (numberControlLine > 0 ) {
+    controlLine[numberControlLine - 1].classList.add("control_active");
+    numberControlLine -= 1
+  } else {
+    controlLine[0].classList.add("control_active");
+    numberControlLine = 0;
+  }
+};
+
+switchLeft.addEventListener("click", leftSwitchSlader);
 
 
