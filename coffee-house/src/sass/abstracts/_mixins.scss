@@ -21,3 +21,7 @@
 @mixin media-mobile {
   @media (max-width: $width-mobile) {@content}
 };
+
+@mixin transition {
+  transition: all 0.7s ease-in-out;
+};

@@ -1,27 +1,42 @@
 .header {
-  padding: 20px 0;
+  padding-top: 20px;
 
   &__wrapper {
     width: 100%;
     @extend %flex-justify;
     @include font ($text-dark, 1.6rem, 600, 150%);
     align-items: center;
+    overflow: hidden;
+    position: relative;
 
     @include media-tablet {
       flex-direction: column;
+      justify-content: flex-start;
+      // position:static;
+      // max-width: 768px;
+      //   overflow: hidden;
+      // min-height: 924px;
+    }
+
+    @include media-mobile {
+      // min-height: 724px;
     }
   }
 
   &__title {
     // width: 40%;
     @extend %flex-justify;
-  };
+
+  }
+
+  ;
 
   &__content {
-    width: 60%;
+    width: 100%;
     @include font ($text-dark, 1.6rem, 600, 150%);
     align-items: center;
     @extend %flex-justify;
+
     @include media-tablet {
       display: none;
     }
@@ -33,24 +48,33 @@
   display: flex;
   border-bottom: 2px solid $text-light;
 
+  &:hover {
+    border-bottom: 2px solid $text-dark;
+    @extend %transition;
+  }
+
   &__text {
     margin-right: 8px;
+
+    @include media-tablet {
+      margin-right: 16px;
+      @include font ($text-dark, 3.2rem, 600, 125%);
+    }
   }
 
   &__picture {
     background: url(../../assets/header/coffee-cup.svg);
     width: 20px;
     height: 20px;
+
+    @include media-tablet {
+      width: 40px;
+      height: 40px;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
   }
 
-  &:hover {
-    border-bottom: 2px solid $text-dark;
-    @extend %transition;
-  }
-
-  // @include media-tablet {
-  //   display: none;
-  // }
 }
 
 .burger-menu {
@@ -65,27 +89,33 @@
   @include media-tablet {
     display: flex;
   }
-}
 
-.burger-menu__container {
-  width: 100%;
-  height: 8px;
-  @extend %flex-column;
-  justify-content: space-between;
-  align-items: center;
+  &__container {
+    width: 100%;
+    @extend %flex-column;
+    justify-content: space-between;
+    align-items: center;
+    height: 8px;
+    @include transition;
 
-  // closed burger-menu 
-  &_active {
 
-    .burger-menu__line {
-      @include media-tablet {
-        transform: rotate(45deg);
-        position: relative;
+    // Closed burger-menu -----------------------------------
+    &_active {
+      justify-content: center;
+      @include transition;
 
-        &::after {
-          @include media-tablet {
-            top: 0;
-            transform: rotate(-90deg);
+      .burger-menu__line {
+        @include media-tablet {
+          transform: rotate(45deg);
+          position: relative;
+          @include transition;
+
+          &::after {
+            @include media-tablet {
+              top: 0;
+              transform: rotate(-90deg);
+              @include transition;
+            }
           }
         }
       }
@@ -93,13 +123,16 @@
   }
 }
 
+//--------------------------------------------
+
 .burger-menu__line {
   width: 16px;
   height: 1.5px;
-  position: absolute;
+  transform: rotate(0deg);
+  position: relative;
   background: $text-dark;
   border-radius: 100px;
-  @extend %transition;
+  @include transition;
 
   &:after {
     content: " ";
@@ -109,13 +142,53 @@
     height: 1.5px;
     background: $text-dark;
     border-radius: 100px;
+    transform: rotate(0deg);
+    @include transition;
+  }
+}
+
+.burger-menu-nav__header {
+  padding-bottom: 20px;
+  @extend %flex-justify;
+  align-items: center;
+
+  @include media-tablet {
+    width: 100%;
   }
 }
 
 .burger-menu-nav__container {
   @include media-tablet {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 100px;
+    right: -768px;
+    padding: 60px 40px;
     display: flex;
     flex-direction: column;
-    gap: 0;
+    justify-content: flex-start;
+    gap: 100px;
+    background: $background-body;
+    @include transition;
+
+    &_active {
+      right: 0; 
+      // position: static;
+      // @include transition;
+    }
+
+    @include media-mobile {
+      min-height: 724px;
+    }
   }
+}
+
+// .position_static {
+//   position: static;
+//   transition: all 20s ease-in-out;
+// }
+
+.overflow-Y {
+  overflow-y: hidden;
 }

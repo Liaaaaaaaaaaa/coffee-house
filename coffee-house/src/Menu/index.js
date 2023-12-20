@@ -4,7 +4,7 @@ import "./index.scss";
 
 import Header from '../Header';
 import MainMenu from './menu-main';
-console.log(MainMenu);
+// console.log(MainMenu);
 // import Footer from '../Footer';
 
 

@@ -1,8 +1,10 @@
 
 import './index.html';
 import './index.scss';
+// import '../Header/index.js';
 
-import Header from '../Header';
+
+import Header from '../Header/js/header.js';
 import Enjoy from '../Home/enjoy';
 import Choose from '../Home/choose';
 import Resource from './resource';
@@ -26,10 +28,10 @@ if (root) {
 
 const footer = document.getElementById('footer');
 footer.append(Footer);
-console.log(footer);
+// console.log(footer);
 
 
-
+// console.log(document.querySelector('.burger-menu'));
 
 
 
