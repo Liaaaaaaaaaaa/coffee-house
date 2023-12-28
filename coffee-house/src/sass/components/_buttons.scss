@@ -148,12 +148,13 @@
   border-radius: 100px;
   border: 1px solid $border-dark;
 
-  @include media-tablet {
-    display: flex;
-  }
+  // @include media-tablet {
+  //   display: flex;
+  // }
 }
 
 .button-refresh__icon {
   width: 24px;
   height: 24px;
+  background: url("../../assets/menu__page/button/refresh-1.svg");
 }

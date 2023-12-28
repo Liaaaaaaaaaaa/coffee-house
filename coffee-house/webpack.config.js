@@ -18,9 +18,9 @@ module.exports = {
       {
         test: /\.html$/i,
         loader: "html-loader",
-        options: {minimize: false},
-       },
-{
+        options: { minimize: false },
+      },
+      {
         test: /\.s[ac]ss$/i,
         use: [
           // Creates `style` nodes from JS strings
@@ -31,9 +31,29 @@ module.exports = {
           "sass-loader",
         ],
       },
+
+      {
+        test: /\.(png|jpg|otf|ttf|woff|woff2|svg)/,
+        type: 'asset/resource',
+        generator: {
+          // adding a hash to the file
+          filename: './assets/menu_page/categories/static/[name].[hash][ext]',
+        },
+      },
+  
+      {
+        test: /\.(png|eot|jpg|otf|ttf|woff|woff2|svg)$/,
+        dependency: { not: ['url'] },
+        use: [
+          {
+            loader: 'url-loader'
+          }
+        ],
+        type: 'javascript/auto'
+      }
     ],
   },
-  
+
   plugins: [
     new HtmlWebpackPlugin({
       filename: 'index.html',
