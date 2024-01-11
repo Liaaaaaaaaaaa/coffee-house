@@ -1,0 +1,11 @@
+@import '../../sass/base/normalize.scss';
+
+
+// ------------SASS--basic------------
+@import '../../sass/abstracts/constants';
+@import '../../sass/abstracts/placeholders';
+@import '../../sass/abstracts/mixins';
+@import '../../sass/base/base';
+
+//---------Modals-----------
+@import "../Modal/sass/modal";

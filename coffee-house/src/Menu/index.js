@@ -3,8 +3,9 @@ import "./index.scss";
 
 import Header from '../Header';
 import MainMenu from './menu-main';
-console.log(MainMenu);
+import Modal from './Modal';
 import Footer from '../Footer';
+
 
 
 const header = document.getElementById('header');
@@ -16,6 +17,9 @@ menu.append(MainMenu);
 const footer = document.getElementById('footer');
 footer.append(Footer);
 
+const modal = document.getElementById('modal');
+modal.append(Modal);
+// console.log(modal);
 
 //------ Switch----catedories----Main-page----------
 

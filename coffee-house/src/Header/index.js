@@ -5,7 +5,8 @@ import Header from '../Header/js/header.js';
 export default Header;
 
 
-const root = document.querySelector('.root');
+
+// const root = document.querySelector('.root');
 const burgerButton = document.querySelector('.burger-menu');
 const burgerMenuNavContainer = document.querySelector('.burger-menu-nav__container');
 const burgerMenuContainer = document.querySelector('.burger-menu__container');
@@ -24,9 +25,9 @@ function SwitchBurgerMenu() {
   body.classList.toggle("overflow-Y");
 }
 
-if( root ) {
+// if( root ) {
   burgerButton.addEventListener('click', SwitchBurgerMenu);
-}
+// }
 
 
 const linksHeader = document.querySelector('header').querySelectorAll('a');
