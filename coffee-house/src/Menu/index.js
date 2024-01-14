@@ -137,3 +137,50 @@ buttonRefresh.addEventListener('click', function () {
   buttonRefresh.style.display = 'none';
 });
 
+//----------Modal-------------------------------
+
+const modalWindow = document.querySelector('.modal');
+const categoriesContainer = document.querySelector('.categories__container');
+let modalPictureBackground = document.querySelector(".modal-picture_background");
+let modalTitle = document.querySelector('.modal__title');
+let modalText = document.querySelector('.modal__text');
+const modalContainer = document.querySelector('.modal__container');
+const modalButton = document.querySelector(".button__modal");
+
+
+function modalWindowOpen(elem) {
+
+  if (elem.target.closest('.category')) {
+    let nameElement = elem.target.closest('.category').children[1].children[0].textContent;
+    // console.log(nameElement);
+    let massiveElement = Categories.filter(e => e.name === nameElement);
+    let modalElementIconS = Array.from(document.querySelectorAll('.modal-element__icon')).filter(e => e.textContent === 'S');
+    // let SizeS = Categories.filter(e => e.name === nameElement);
+    // console.log(massiveElement[0].picture);
+    // console.log(modalWindow);
+    modalPictureBackground.classList.add(massiveElement[0].picture);
+    modalTitle.textContent = massiveElement[0].name;
+    modalText.textContent = massiveElement[0].description;
+    modalElementIconS[0].nextElementSibling.textContent = massiveElement[0].sizes.s.size;
+
+
+    modalWindow.classList.toggle('active');
+    // document.querySelector('body').classList.toggle('position-fixed');
+  }
+}
+
+categoriesContainer.addEventListener('click', modalWindowOpen);
+
+
+function modalWindowClose(elem) {
+  if (elem.target === modalButton) {
+    modalWindow.classList.remove('active');
+  }
+// console.log(modalContainer.contains(elem.target))
+  if ( !modalContainer.contains(elem.target)){
+    modalWindow.classList.toggle('active'); 
+  }
+}
+
+modalWindow.addEventListener("click", modalWindowClose);
+modalButton.addEventListener("click", modalWindowClose);
