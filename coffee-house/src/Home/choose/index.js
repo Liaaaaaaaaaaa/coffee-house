@@ -1,8 +1,30 @@
-import Choose from './index.html';
+import Choose from "../choose/choose.js";
 
 
-import htmlToElement from '../../utils/htmlToElement';
+console.log(Choose);
 
-const choose = htmlToElement(Choose)
+export default Choose;
 
-export default choose;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import Choose from './index.html';
+
+
+// import htmlToElement from '../../utils/htmlToElement';
+
+// const choose = htmlToElement(Choose)
+
+// export default choose;
+

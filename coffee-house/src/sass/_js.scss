@@ -1,3 +1,15 @@
+.no-active {
+  display: none;
+}
+
 .active {
   display: flex;
+}
+
+.position_static {
+  position: static;
+}
+
+.overflow-Y {
+  overflow-y: hidden;
 }
