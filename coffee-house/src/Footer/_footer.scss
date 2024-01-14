@@ -17,6 +17,7 @@
     flex-direction: column;
     padding: 100px 60px;
   }
+
   @include media-mobile-more {
     padding: 60px 16px;
     gap: 40px;
@@ -54,24 +55,27 @@
   background: inherit;
 
   &:hover {
-    background: $background-body;
-    @extend %transition;
+    @include hover {
+      background: $background-body;
+      @include transition;
 
-    .twitter__icon {
-      background: url('../../assets/footer/twitter-icon-hover.svg') no-repeat;
-      @extend %transition;
-    }
+      .twitter__icon {
+        background: url('../../assets/footer/twitter-icon-hover.svg') no-repeat;
+        @include transition;
+      }
 
-    .insta__icon {
-      background: url('../../assets/footer/instagram-icon-hover.svg') no-repeat;
-      @extend %transition;
-    }
+      .insta__icon {
+        background: url('../../assets/footer/instagram-icon-hover.svg') no-repeat;
+        @include transition;
+      }
 
-    .facebook__icon {
-      background: url('../../assets/footer/facebook-icon-hover.svg') no-repeat;
-      @extend %transition;
+      .facebook__icon {
+        background: url('../../assets/footer/facebook-icon-hover.svg') no-repeat;
+        @include transition;
+      }
     }
   }
+
 }
 
 .twitter__icon {
@@ -125,8 +129,11 @@
   border-bottom: 2px solid $background-container;
 
   &:hover {
-    border-color: $background-body;
-    @extend %transition;
+    @include hover {
+      border-color: $background-body;
+      @include transition;
+    }
+
   }
 }
 

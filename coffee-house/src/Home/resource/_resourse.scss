@@ -47,13 +47,18 @@
 
   &:hover {
 
-    .picture-visible_big,
-    .picture-visible_small {
-      width: 660px;
-      height: 660px;
-      background-size: contain;
-      @extend %transition;
-    }
+      .picture-visible_big,
+      .picture-visible_small {
+        @include hover {
+        width: 660px;
+        height: 660px;
+        background-size: contain;
+        };
+      }
+
+
+    ;
+
   }
 }
 
