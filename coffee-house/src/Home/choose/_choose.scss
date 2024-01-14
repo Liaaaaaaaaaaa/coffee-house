@@ -46,9 +46,10 @@
   }
 
   &:hover {
-    background: $background-container;
-    color: $background-body;
-    @extend %transition;
+    @include hover {
+      background: $background-container;
+      color: $background-body;
+    };
   }
 }
 

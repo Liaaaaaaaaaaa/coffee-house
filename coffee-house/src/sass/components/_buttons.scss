@@ -28,8 +28,12 @@
 
   &:hover {
     .menu-link__picture {
-      width: 20px;
-      @extend %transition;
+      @include hover {
+        width: 20px;
+      }
+
+      ;
+
     }
   }
 
@@ -46,23 +50,39 @@
   border: 1px solid $border-dark;
 
   &:hover {
-    background: $background-container;
-    @extend %transition;
+    @include hover {
+      background: $background-container;
+    }
+
+    ;
+
 
     .button-app-store {
       &__text {
-        color: $background-body;
-        @extend %transition;
+        @include hover {
+          color: $background-body;
+        }
+
+        ;
+
       }
 
       &__name {
-        color: $background-body;
-        @extend %transition;
+        @include hover {
+          color: $background-body;
+        }
+
+        ;
+
       }
 
       &__icon {
-        background: url('../../assets/download/icon-apply-hover.svg');
-        @extend %transition;
+        @include hover {
+          background: url('../../assets/download/icon-apply-hover.svg');
+        }
+
+        ;
+
       }
     }
   }
@@ -77,9 +97,13 @@
     @extend %flex-column
   }
 
+  ;
+
   &__text {
     @include font ($text-dark, 10px, 600, 140%)
   }
+
+  ;
 
   &__name {
     @include font ($text-dark, 16px, 600, 150%)
@@ -116,23 +140,40 @@
   }
 
   &:hover {
-    background: $background-container;
-    @extend %transition;
+    @include hover {
+      background: $background-container;
+    }
+
+    ;
+
 
     .button-google-play {
       &__text {
-        color: $background-body;
-        @extend %transition;
+        @include hover {
+          color: $background-body;
+        }
+
+        ;
+
       }
 
       &__name {
-        color: $background-body;
-        @extend %transition;
+        @include hover {
+          color: $background-body;
+        }
+
+        ;
+
       }
 
       &__icon {
-        background: url('../../assets/download/icon-google-hover.svg');
-        @extend %transition;
+        @include hover {
+          background: url('../../assets/download/icon-google-hover.svg');
+        }
+
+        ;
+
+
       }
     }
   }
