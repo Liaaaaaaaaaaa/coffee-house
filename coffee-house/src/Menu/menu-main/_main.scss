@@ -41,6 +41,7 @@
     border-radius: 100px;
     border: 1px solid $border-light;
     @extend %transition;
+    cursor: pointer;
 
     &:nth-child(1) div div {
       background: url("../../assets/menu__page/swithing/1.svg") no-repeat;

@@ -1,17 +1,12 @@
 .modal {
-   display: none;
+  display: none;
   width: 100%;
   height: 100vh;
-  position: absolute;
+  position: fixed;
   left: 0;
-  top: inherit;
+  top: 0;
   background: $background-backdrop;
   @extend %flex-center;
-
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
 
   .modal__container {
     // max-width: 800px;
@@ -91,9 +86,21 @@
     gap: 8px;
     border-radius: 100px;
     border: 1px solid $border-light;
+    cursor: pointer;
 
     @include media-tablet {
       padding: 7px 16px 7px 8px;
+    }
+  }
+
+  .active_modal-element {
+    border-radius: 100px;
+    background: $background-container;
+    color: $text-light;
+
+    .modal-element__icon {
+      background: #E1D4C9;
+      color: #403F3D;
     }
   }
 

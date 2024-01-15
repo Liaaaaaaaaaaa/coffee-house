@@ -146,26 +146,35 @@ let modalTitle = document.querySelector('.modal__title');
 let modalText = document.querySelector('.modal__text');
 const modalContainer = document.querySelector('.modal__container');
 const modalButton = document.querySelector(".button__modal");
-
+const body = document.querySelector("body");
+let modalTotalPrice = document.querySelector(".modal-total__price");
 
 function modalWindowOpen(elem) {
-
   if (elem.target.closest('.category')) {
     let nameElement = elem.target.closest('.category').children[1].children[0].textContent;
-    // console.log(nameElement);
     let massiveElement = Categories.filter(e => e.name === nameElement);
-    let modalElementIconS = Array.from(document.querySelectorAll('.modal-element__icon')).filter(e => e.textContent === 'S');
-    // let SizeS = Categories.filter(e => e.name === nameElement);
-    // console.log(massiveElement[0].picture);
-    // console.log(modalWindow);
+
+
+    //------- change icons---------
+    let modalElementContainer = document.querySelectorAll('.modal-element__container');
+
+    for (let i = 3; i < modalElementContainer.length; i++) {
+      modalElementContainer[i].children[1].textContent = massiveElement[0].additives[i - 3].name;
+    }
+    modalElementContainer[0].children[1].textContent = massiveElement[0].sizes.s.size;
+    modalElementContainer[1].children[1].textContent = massiveElement[0].sizes.m.size;
+    modalElementContainer[2].children[1].textContent = massiveElement[0].sizes.l.size;
+
     modalPictureBackground.classList.add(massiveElement[0].picture);
     modalTitle.textContent = massiveElement[0].name;
     modalText.textContent = massiveElement[0].description;
-    modalElementIconS[0].nextElementSibling.textContent = massiveElement[0].sizes.s.size;
 
+    modalTotalPrice.textContent = "$" + massiveElement[0].price;
 
     modalWindow.classList.toggle('active');
-    // document.querySelector('body').classList.toggle('position-fixed');
+    body.classList.add("overflow-Y");
+
+
   }
 }
 
@@ -175,12 +184,84 @@ categoriesContainer.addEventListener('click', modalWindowOpen);
 function modalWindowClose(elem) {
   if (elem.target === modalButton) {
     modalWindow.classList.remove('active');
+    body.classList.remove("overflow-Y");
+    modalPictureBackground.classList = 'modal-picture_background';
   }
-// console.log(modalContainer.contains(elem.target))
-  if ( !modalContainer.contains(elem.target)){
-    modalWindow.classList.toggle('active'); 
+
+  if (!modalContainer.contains(elem.target)) {
+    modalWindow.classList.toggle('active');
+    body.classList.remove("overflow-Y");
+    modalPictureBackground.classList = 'modal-picture_background';
   }
 }
 
 modalWindow.addEventListener("click", modalWindowClose);
 modalButton.addEventListener("click", modalWindowClose);
+
+
+const modalChooseElementSize = document.querySelectorAll(".modal-choose__elements")[0];
+const modalChooseElementAdd = document.querySelectorAll(".modal-choose__elements")[1];
+
+let totalPrice = document.querySelector(".modal-total__price");
+let changeTotalPrice;
+
+function activeChooseSize(elem) {
+  Array.from(modalChooseElementSize.children).forEach(e => e.classList = "modal-element__container");
+  Array.from(modalChooseElementSize.children).forEach(e => e.children[0].style.background = "#C1B6AD");
+
+  elem.target.closest(".modal-element__container").classList.toggle("active_modal-element");
+
+
+  let nameElement = elem.target.closest(".modal__container").children[1].children[0].children[0].textContent;
+  let massiveElement = Categories.filter(e => e.name === nameElement);
+  let chooseSize = elem.target.closest(".modal-element__container").children[0].textContent;
+
+  let firstTotalPrice = massiveElement[0].price;
+
+
+  if (chooseSize === "S") {
+    changeTotalPrice = "$" + firstTotalPrice;
+  }
+  if (chooseSize === "M") {
+    changeTotalPrice = "$" + (+firstTotalPrice + 0.5);
+  }
+  if (chooseSize === "L") {
+    changeTotalPrice = "$" + (+firstTotalPrice + 1);
+  }
+  totalPrice.textContent = changeTotalPrice;
+
+  console.log(elem)
+
+}
+
+modalChooseElementSize.addEventListener("click", activeChooseSize);
+// activeChooseSize (elem);
+
+function activeChooseAdd(elem) {
+  elem.target.closest(".modal-element__container").classList.toggle("active_modal-element");
+  let nameElement = elem.target.closest(".modal__container").children[1].children[0].children[0].textContent;
+  let massiveElement = Categories.filter(e => e.name === nameElement);
+
+  let numberAdd = elem.target.closest(".modal-element__container").children[0].textContent - 1;
+
+  let priceAdd = massiveElement[0].additives[numberAdd]["add-price"];
+
+
+
+  let sum;
+  let firstTotalPrice = totalPrice.textContent.slice(1);
+  let classlistLength = elem.target.closest(".modal-element__container").classList.length;
+
+  if (classlistLength === 2) {
+    sum = "$" + (+firstTotalPrice + +priceAdd);
+  }
+  if (classlistLength === 1) {
+    sum = "$" + (+firstTotalPrice - +priceAdd);
+  }
+
+  totalPrice.textContent = sum;
+}
+
+
+modalChooseElementAdd.addEventListener("click", activeChooseAdd);
+
