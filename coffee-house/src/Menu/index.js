@@ -151,13 +151,17 @@ let modalTotalPrice = document.querySelector(".modal-total__price");
 
 function modalWindowOpen(elem) {
   if (elem.target.closest('.category')) {
+
+
     let nameElement = elem.target.closest('.category').children[1].children[0].textContent;
     let massiveElement = Categories.filter(e => e.name === nameElement);
 
-
     //------- change icons---------
     let modalElementContainer = document.querySelectorAll('.modal-element__container');
-
+    for (let i = 0; i < modalElementContainer.length; i++) {
+      modalElementContainer[i].classList.remove("active_modal-element");
+      modalElementContainer[0].classList.add("active_modal-element");
+    }
     for (let i = 3; i < modalElementContainer.length; i++) {
       modalElementContainer[i].children[1].textContent = massiveElement[0].additives[i - 3].name;
     }
@@ -174,11 +178,83 @@ function modalWindowOpen(elem) {
     modalWindow.classList.toggle('active');
     body.classList.add("overflow-Y");
 
+    //----choose ----size-- and --add
+    const modalChooseElementSize = document.querySelectorAll(".modal-choose__elements")[0];
+    const modalChooseElementAdd = document.querySelectorAll(".modal-choose__elements")[1];
+
+    let totalPrice = document.querySelector(".modal-total__price");
+    let changeTotalPrice;
+
+    function activeChooseSize(elem) {
+      if (elem.target.closest(".modal-element__container")) {
+        Array.from(modalChooseElementSize.children).forEach(e => e.classList = "modal-element__container");
+        Array.from(modalChooseElementSize.children).forEach(e => e.children[0].style.background = "#C1B6AD");
+
+        elem.target.closest(".modal-element__container").classList.toggle("active_modal-element");
+
+
+        let nameElement = elem.target.closest(".modal__container").children[1].children[0].children[0].textContent;
+        let massiveElement = Categories.filter(e => e.name === nameElement);
+        let chooseSize = elem.target.closest(".modal-element__container").children[0].textContent;
+
+        let firstTotalPrice = massiveElement[0].price;
+
+
+        if (chooseSize === "S") {
+          changeTotalPrice = "$" + (+firstTotalPrice + sumAddforSize);
+        }
+        if (chooseSize === "M") {
+          changeTotalPrice = "$" + (+firstTotalPrice + 0.5 + sumAddforSize);
+        }
+        if (chooseSize === "L") {
+          changeTotalPrice = "$" + (+firstTotalPrice + 1 + sumAddforSize);
+        }
+        totalPrice.textContent = changeTotalPrice;
+      }
+    }
+
+    modalChooseElementSize.addEventListener("click", activeChooseSize);
+
+    let sumAddforSize = 0;
+
+    function activeChooseAdd(elem) {
+      if (elem.target.closest(".modal-element__container")) {
+        elem.target.closest(".modal-element__container").classList.toggle("active_modal-element");
+        let nameElement = elem.target.closest(".modal__container").children[1].children[0].children[0].textContent;
+        let massiveElement = Categories.filter(e => e.name === nameElement);
+
+        let numberAdd = elem.target.closest(".modal-element__container").children[0].textContent - 1;
+
+        let priceAdd = massiveElement[0].additives[numberAdd]["add-price"];
+
+        let sum;
+        let sumAdd = 0;
+
+        let firstTotalPrice = totalPrice.textContent.slice(1);
+        let classlistLength = elem.target.closest(".modal-element__container").classList.length;
+
+        if (classlistLength === 2) {
+          sum = "$" + (+firstTotalPrice + +priceAdd);
+          sumAdd += +priceAdd;
+        }
+        if (classlistLength === 1) {
+          sum = "$" + (+firstTotalPrice - +priceAdd);
+          sumAdd -= +priceAdd;
+        }
+        sumAddforSize += sumAdd;
+        totalPrice.textContent = sum;
+      }
+    }
+
+    modalChooseElementAdd.addEventListener("click", activeChooseAdd);
 
   }
 }
 
+
 categoriesContainer.addEventListener('click', modalWindowOpen);
+
+
 
 
 function modalWindowClose(elem) {
@@ -199,69 +275,5 @@ modalWindow.addEventListener("click", modalWindowClose);
 modalButton.addEventListener("click", modalWindowClose);
 
 
-const modalChooseElementSize = document.querySelectorAll(".modal-choose__elements")[0];
-const modalChooseElementAdd = document.querySelectorAll(".modal-choose__elements")[1];
 
-let totalPrice = document.querySelector(".modal-total__price");
-let changeTotalPrice;
-
-function activeChooseSize(elem) {
-  Array.from(modalChooseElementSize.children).forEach(e => e.classList = "modal-element__container");
-  Array.from(modalChooseElementSize.children).forEach(e => e.children[0].style.background = "#C1B6AD");
-
-  elem.target.closest(".modal-element__container").classList.toggle("active_modal-element");
-
-
-  let nameElement = elem.target.closest(".modal__container").children[1].children[0].children[0].textContent;
-  let massiveElement = Categories.filter(e => e.name === nameElement);
-  let chooseSize = elem.target.closest(".modal-element__container").children[0].textContent;
-
-  let firstTotalPrice = massiveElement[0].price;
-
-
-  if (chooseSize === "S") {
-    changeTotalPrice = "$" + firstTotalPrice;
-  }
-  if (chooseSize === "M") {
-    changeTotalPrice = "$" + (+firstTotalPrice + 0.5);
-  }
-  if (chooseSize === "L") {
-    changeTotalPrice = "$" + (+firstTotalPrice + 1);
-  }
-  totalPrice.textContent = changeTotalPrice;
-
-  console.log(elem)
-
-}
-
-modalChooseElementSize.addEventListener("click", activeChooseSize);
-// activeChooseSize (elem);
-
-function activeChooseAdd(elem) {
-  elem.target.closest(".modal-element__container").classList.toggle("active_modal-element");
-  let nameElement = elem.target.closest(".modal__container").children[1].children[0].children[0].textContent;
-  let massiveElement = Categories.filter(e => e.name === nameElement);
-
-  let numberAdd = elem.target.closest(".modal-element__container").children[0].textContent - 1;
-
-  let priceAdd = massiveElement[0].additives[numberAdd]["add-price"];
-
-
-
-  let sum;
-  let firstTotalPrice = totalPrice.textContent.slice(1);
-  let classlistLength = elem.target.closest(".modal-element__container").classList.length;
-
-  if (classlistLength === 2) {
-    sum = "$" + (+firstTotalPrice + +priceAdd);
-  }
-  if (classlistLength === 1) {
-    sum = "$" + (+firstTotalPrice - +priceAdd);
-  }
-
-  totalPrice.textContent = sum;
-}
-
-
-modalChooseElementAdd.addEventListener("click", activeChooseAdd);
 
