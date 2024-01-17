@@ -86,3 +86,4 @@ if (root) {
   switchLeft.addEventListener("click", leftSwitchSlader);
 }
 
+setInterval(rightSwitchSlader, 5000);

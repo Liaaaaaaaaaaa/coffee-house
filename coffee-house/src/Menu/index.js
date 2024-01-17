@@ -19,14 +19,11 @@ footer.append(Footer);
 
 const modal = document.getElementById('modal');
 modal.append(Modal);
-// console.log(modal);
+
 
 //------ Switch----catedories----Main-page----------
 
 import Categories from './menu-main/products/products.json';
-
-// console.log(Categories);
-
 
 const coffeeCategory = Categories.filter(e => e.category === "coffee");
 const teaCategory = Categories.filter(e => e.category === "tea");
@@ -35,9 +32,8 @@ const dessertCategory = Categories.filter(e => e.category === "dessert");
 const switchingContainer = document.querySelector('.switching__container');
 const massiveCardsProducts = document.querySelectorAll('.category');
 
-const buttonRefresh = document.querySelector('.button-refresh');
-console.log(buttonRefresh);
 
+const buttonRefresh = document.querySelector('.button-refresh');
 
 function changeCategory(m1, m2) {
   if (m1.length > m2.length) {

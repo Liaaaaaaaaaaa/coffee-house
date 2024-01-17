@@ -78,10 +78,10 @@
 }
 
 .switching_active, .switching__item:hover {
-  @include hover {
+  // @include hover {
     background: $background-container;
-  }
-
+    // color: $text-dark;
+  // }
   ;
 
 

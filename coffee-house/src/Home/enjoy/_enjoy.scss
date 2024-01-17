@@ -1,26 +1,43 @@
 // .enjoy {}
 
-// .enjoy-wrapper {}
+// .enjoy-wrapper {
+// }
 
 .enjoy-container {
+  position: relative;
+  display: flex;
   width: 100%;
   border-radius: 40px;
-  background: url("../../assets/enjoy/background-enjoy.jpg"), lightgray 50% / cover no-repeat;
+  // background: url("../../assets/enjoy/background-enjoy.jpg"), lightgray 50% / cover no-repeat;
+
   padding: 100px;
 
   @include media-tablet {
     padding: 100px 60px;
     background-position: 50%;
   }
+
   @include media-mobile {
     padding: 60px 16px;
   }
+}
+
+.enjoyVideo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  // max-width: 1360px;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 40px;
 }
 
 .enjoy__content {
   max-width: 530px;
   @extend %flex-column;
   gap: 40px;
+    z-index: 10;
 }
 
 .enjoy__title {

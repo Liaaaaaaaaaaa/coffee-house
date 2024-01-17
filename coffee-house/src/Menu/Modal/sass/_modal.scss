@@ -20,7 +20,7 @@
     height: 340px;
     padding: 16px;
 
-    @include media-mobile {
+    @media (width < 768px) {
       display: none;
     }
 
